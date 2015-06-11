@@ -4,6 +4,8 @@ abstract class Tag(val tag: String) {
 
 }
 
+// TODO: encode the structure in the same way that refs?
+
 case class SimpleTag(override val tag: String) extends Tag(tag)
 
 abstract class StructuredTag(override val tag: String) extends Tag(tag) {
@@ -12,4 +14,4 @@ abstract class StructuredTag(override val tag: String) extends Tag(tag) {
 }
 
 // FIXME: name
-case class TagWithRef[T <: Tag](t: T, r: Ref)
+case class TagWithRef[T <: Tag](t: T, r: Ref) extends Tag(t.tag)
